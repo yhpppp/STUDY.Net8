@@ -1,0 +1,6 @@
+@STUDY.Net8_HostAddress = http://localhost:5290
+
+GET {{STUDY.Net8_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
