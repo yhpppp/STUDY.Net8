@@ -6,7 +6,7 @@ namespace STUDY.Net8.Service
 {
     public class UserService : IUserService
     {
-        public async Task<List<UserVo>> query()
+        public async Task<List<UserVo>> Query()
         {
             var userRepo = new UserRepository();
             var user = await userRepo.Query();

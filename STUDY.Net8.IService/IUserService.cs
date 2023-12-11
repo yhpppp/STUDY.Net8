@@ -4,6 +4,6 @@ namespace STUDY.Net8.IService
 {
     public interface IUserService
     {
-        Task<List<UserVo>> query();
+        Task<List<UserVo>> Query();
     }
 }
