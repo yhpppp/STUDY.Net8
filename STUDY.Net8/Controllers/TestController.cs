@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using STUDY.Net8.IService;
 using STUDY.Net8.Model;
 using STUDY.Net8.Service;
 
@@ -9,11 +10,11 @@ namespace STUDY.Net8.Controllers
     [Route("[Controller]")]
     public class TestController : ControllerBase
     {
-        private readonly IMapper _mapper;
+        private readonly IBaseService<Role, RoleVo> _roleService;
 
-        public TestController(IMapper mapper)
+        public TestController(IMapper mapper, IBaseService<Role, RoleVo> roleService)
         {
-            _mapper = mapper;
+            _roleService = roleService;
         }
 
         [HttpGet(Name = "GetTest")]
@@ -24,8 +25,7 @@ namespace STUDY.Net8.Controllers
         //}
         public async Task<Object> Get()
         {
-            var baseService = new BaseService<Role, RoleVo>(_mapper);
-            return await baseService.Query();
+            return await _roleService.Query();
         }
     }
 }
